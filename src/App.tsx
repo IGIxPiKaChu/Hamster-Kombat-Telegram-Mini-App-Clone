@@ -20,11 +20,11 @@ const App: React.FC = () => {
   const [levelIndex, setLevelIndex] = useState(6);
   const [points, setPoints] = useState(() => {
     const savedPoints = localStorage.getItem('points');
-    return savedPoints ? parseInt(savedPoints, 10) : 22749365;
+    return savedPoints ? parseInt(savedPoints, 10) : 0;
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 11;
-  const profitPerHour = 126420;
+  const pointsToAdd = 5000;
+  const profitPerHour = 100000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
@@ -128,8 +128,7 @@ const App: React.FC = () => {
               <Hamster size={24} className="text-[#d4d4d4]" />
             </div>
             <div>
-              <p className="text-sm">Nikandr (CEO)</p>
-              <p className="text-sm">Username: iGIxPiKaChu</p> {/* Placeholder for Telegram username */}
+              <p className="text-sm">PiKaChu (CEO)</p>
             </div>
           </div>
           <div className="flex items-center justify-between space-x-4 mt-1">
