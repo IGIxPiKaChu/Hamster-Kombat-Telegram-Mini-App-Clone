@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Hamster from './icons/Hamster';
-import { binanceLogo, dailyCipher, dailyCombo, dailyReward, dollarCoin, hamsterCoin, mainCharacter, img1, img2, img3, Img4} from './images';
+import { binanceLogo, dailyCipher, dailyCombo, dailyReward, dollarCoin, hamsterCoin, mainCharacter } from './images';
 import Info from './icons/Info';
 import Settings from './icons/Settings';
 import Mine from './icons/Mine';
@@ -36,10 +36,7 @@ const App: React.FC = () => {
   ];
 
   const levelImages = [
-    img1, 
-    img2, 
-    img3, 
-    img4,
+    dailyCombo, 
   ];
 
   const [levelIndex, setLevelIndex] = useState(6);
