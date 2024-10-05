@@ -23,8 +23,8 @@ const App: React.FC = () => {
     return savedPoints ? parseInt(savedPoints, 16) : 0;
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 500000;
-  const profitPerHour = 100000000;
+  const pointsToAdd = 50000000;
+  const profitPerHour = 1000000000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
@@ -113,10 +113,10 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    const pointsPerSecond = Math.floor(profitPerHour / 3600);
+    const pointsPerSecond = Math.floor(profitPerHour / 360000);
     const interval = setInterval(() => {
       setPoints(prevPoints => prevPoints + pointsPerSecond);
-    }, 1000);
+    }, 100000);
     return () => clearInterval(interval);
   }, [profitPerHour]);
 
