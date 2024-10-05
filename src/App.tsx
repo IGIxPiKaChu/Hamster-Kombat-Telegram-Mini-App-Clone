@@ -12,7 +12,7 @@ const App: React.FC = () => {
   const levelNames = [
     "Bronze", 
     "Silver", 
-    "Gold",
+    "Gold", 
     "Platinum", 
     "Diamond", 
     "Epic", 
@@ -42,7 +42,7 @@ const App: React.FC = () => {
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const pointsToAdd = 50000;
-  const profitPerHour = 10000000;
+  const profitPerHour = 100000000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
@@ -183,7 +183,7 @@ const App: React.FC = () => {
         <div className="flex-grow mt-4 bg-[#f3ba2f] rounded-t-[48px] relative top-glow z-0">
           <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-[#1d2025] rounded-t-[46px]">
             <div className="px-4 mt-6 flex justify-between gap-2">
-              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-flative">
+              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
                 <div className="dot"></div>
                 <img src={dailyReward} alt="Daily Reward" className="mx-auto w-12 h-12" />
                 <p className="text-[10px] text-center text-white mt-1">Daily reward</p>
