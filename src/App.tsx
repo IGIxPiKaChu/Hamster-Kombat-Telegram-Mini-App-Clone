@@ -10,19 +10,38 @@ import Coins from './icons/Coins';
 
 const App: React.FC = () => {
   const levelNames = [
-    "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Epic", "Legendary", "Master", "GrandMaster", "Lord", "Creator", "Almighty", "Earth God", "Milky-Way GoD", "Universal God", "Vaibhav Ka Papa"
+    "Bronze", 
+    "Silver", 
+    "Gold",
+    "Platinum", 
+    "Diamond", 
+    "Epic", 
+    "Legendary", 
+    "Master", 
+    "GrandMaster", 
+    "Lord"
   ];
 
   const levelMinPoints = [
-    0, 5000, 25000, 100000, 1000000, 2000000, 10000000, 50000000, 100000000, 1000000000, 20000000000, 40000000000, 60000000000, 80000000000, 100000000000, 120000000000
+    0, 
+    5000, 
+    25000, 
+    100000, 
+    1000000, 
+    2000000, 
+    10000000, 
+    50000000, 
+    100000000, 
+    1000000000
   ];
+
   const [levelIndex, setLevelIndex] = useState(6);
   const [points, setPoints] = useState(() => {
     const savedPoints = localStorage.getItem('points');
-    return savedPoints ? parseInt(savedPoints, 16) : 0;
+    return savedPoints ? parseInt(savedPoints, 10) : 0;
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 5000;
+  const pointsToAdd = 50000;
   const profitPerHour = 10000000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
@@ -110,11 +129,11 @@ const App: React.FC = () => {
     return `+${profit}`;
   };
 
-    useEffect(() => {
+  useEffect(() => {
     const pointsPerSecond = Math.floor(profitPerHour / 3600);
     const interval = setInterval(() => {
       setPoints(prevPoints => prevPoints + pointsPerSecond);
-    }, 10000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [profitPerHour]);
 
@@ -164,7 +183,7 @@ const App: React.FC = () => {
         <div className="flex-grow mt-4 bg-[#f3ba2f] rounded-t-[48px] relative top-glow z-0">
           <div className="absolute top-[2px] left-0 right-0 bottom-0 bg-[#1d2025] rounded-t-[46px]">
             <div className="px-4 mt-6 flex justify-between gap-2">
-              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-full relative">
+              <div className="bg-[#272a2f] rounded-lg px-4 py-2 w-flative">
                 <div className="dot"></div>
                 <img src={dailyReward} alt="Daily Reward" className="mx-auto w-12 h-12" />
                 <p className="text-[10px] text-center text-white mt-1">Daily reward</p>
