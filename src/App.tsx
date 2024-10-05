@@ -16,15 +16,14 @@ const App: React.FC = () => {
   const levelMinPoints = [
     0, 5000, 25000, 100000, 1000000, 2000000, 10000000, 50000000, 100000000, 1000000000, 20000000000, 40000000000, 60000000000, 80000000000, 100000000000, 120000000000
   ];
-
   const [levelIndex, setLevelIndex] = useState(6);
   const [points, setPoints] = useState(() => {
     const savedPoints = localStorage.getItem('points');
     return savedPoints ? parseInt(savedPoints, 16) : 0;
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 5000000;
-  const profitPerHour = 100000000;
+  const pointsToAdd = 5000;
+  const profitPerHour = 10000000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
   const [dailyCipherTimeLeft, setDailyCipherTimeLeft] = useState("");
@@ -105,14 +104,13 @@ const App: React.FC = () => {
   }, [points, levelIndex, levelMinPoints, levelNames.length]);
 
   const formatProfitPerHour = (profit: number) => {
-    if (profit >= 1000000000000) return `+${(profit / 1000000000000).toFixed(2)}T`;
     if (profit >= 1000000000) return `+${(profit / 1000000000).toFixed(2)}B`;
     if (profit >= 1000000) return `+${(profit / 1000000).toFixed(2)}M`;
     if (profit >= 1000) return `+${(profit / 1000).toFixed(2)}K`;
     return `+${profit}`;
   };
 
-  useEffect(() => {
+    useEffect(() => {
     const pointsPerSecond = Math.floor(profitPerHour / 3600);
     const interval = setInterval(() => {
       setPoints(prevPoints => prevPoints + pointsPerSecond);
