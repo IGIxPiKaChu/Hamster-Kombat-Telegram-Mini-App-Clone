@@ -23,7 +23,7 @@ const App: React.FC = () => {
     return savedPoints ? parseInt(savedPoints, 16) : 0;
   });
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
-  const pointsToAdd = 50000000;
+  const pointsToAdd = 5000000;
   const profitPerHour = 1000000000;
 
   const [dailyRewardTimeLeft, setDailyRewardTimeLeft] = useState("");
@@ -116,7 +116,7 @@ const App: React.FC = () => {
     const pointsPerSecond = Math.floor(profitPerHour / 3600);
     const interval = setInterval(() => {
       setPoints(prevPoints => prevPoints + pointsPerSecond);
-    }, 1000);
+    }, 10000);
     return () => clearInterval(interval);
   }, [profitPerHour]);
 
